@@ -13,7 +13,7 @@ In this final project, you will implement the missing parts in the schematic. To
 ## Assumptions and notes
 
 1. For the sake of simplicity, the calculations of TTC assume constant velocity motion model. But this is not the case in reality.
-2. Here we use the YOLO pre-defined model(pre-trained weights) to identify object in the scene. The input images are color images. This is because the model is trained by color images and it would give poor results if we use grayscale image as input.
+2. Here we use the YOLO pre-defined model(pre-trained weights) to identify object in the scene. The input images are color images. This is because the model is trained by color images and it would give poor results if we use grayscale image as input. The folder for pre-trained model is not included in this repository due to the limitation of file size.
 3. To get better esimation of TTC, one can also implement EKF or UKF on both sensors(camera and lidar). Perhaps radar is the best choice in this case, since radar can directly measure the velocity of the target.
 
 ## FP1 - Matching bounding boxes
