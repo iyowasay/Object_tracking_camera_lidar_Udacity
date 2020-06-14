@@ -272,11 +272,11 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
 
 1. YOLO object detection: 
 
-<img src="images/results/yolo1.png" width="870" height="350" />
+<img src="images/results/yolo1.png" width="900" height="350" />
 
 The original data of confidence and NMS threshold are set to 0.2 and 0.4. At first sight, it seems that the confidence threshold is too low and might lead to wrong detections. The reason is because the confidences are quite low in certain frames and we need to consistantly detect the preceding vehicle. This might result from the change of light and shadow and how the model is trained. In addition, I set the NMS threshold to 0.1 to avoid duplicate detection on the same object. Due to the size of the tank truck on the right, the result show two bounding boxes for the tank truck in some frames. This might cause problem on the future work of tracking and motion estimation.
 
-<img src="images/results/yolo2.png" width="870" height="350" /> 
+<img src="images/results/yolo2.png" width="830" height="360" /> 
 
 2. Poor esitmation with Lidar:
 
@@ -284,12 +284,12 @@ Firstly, the cropLidarPoints() cut out all the points except those related to th
 
 The image below shows the detection of further vehicle when "maxZ" is set to 0.5 and the TTC estimation with camera is NAN due to the lack to matched keypoints.
 
-<img src="images/results/maxz.png" width="830" height="360" /> 
+<img src="images/results/maxz.png" width="900" height="360" /> 
 
 Secondly, the estimation is off when the TTC is calculated by the minimum of all the lidar points. Since certain degree of noise exist in all kinds of sensor, erroneous lidar signals are inevitable. 
 
-<img src="images/results/48.png" width="870" height="350" /> 
-<img src="images/results/7.png" width="870" height="350" />
+<img src="images/results/48.png" width="900" height="350" /> 
+<img src="images/results/7.png" width="900" height="350" />
 
 Therefore, the TTC is calculated using the median of the x coordinate of the lidar points. This allows us to obtain more stable result. Besides, the "shrinkFactor" and "maxZ" here are changed to 0.2 and -0.7 in order to get better results. The following figures show top view of lidar points and the corresponding bounding box.
 
